@@ -14,7 +14,7 @@ public:
 		this->name = name;
 		this->score = score;
 	}
-	//Æ½¾ù·Ö¸³Öµ
+	//å¹³å‡åˆ†èµ‹å€¼
 	void Judging(int score)
 	{
 		this->score = score;
@@ -31,7 +31,7 @@ private:
 	string name;
 	int score;
 };
-//ÇóÃ¿Î»Ñ¡ÊÖµÄ´ò·ÖÍêµÄÆ½¾ù·Ö
+//æ±‚æ¯ä½é€‰æ‰‹çš„æ‰“åˆ†å®Œçš„å¹³å‡åˆ†
 int adv_score( Player& p)
 {
 	deque<int>d1;
@@ -39,34 +39,34 @@ int adv_score( Player& p)
 	
 	for (int i = 0; i < 10; i++)
 	{
-		score = rand() % 41 + 60;//Ëæ»ú60~100·ÖÊı
+		score = rand() % 41 + 60;//éšæœº60~100åˆ†æ•°
 		d1.push_back(score);
 	}
 	sort(d1.begin(), d1.end());
 	d1.pop_back();
-	d1.pop_front();//É¾³ı×î´óºÍ×îĞ¡µÄ·ÖÊı
-	//ÔÚÀÛ¼Ó×Ü·Ö
+	d1.pop_front();//åˆ é™¤æœ€å¤§å’Œæœ€å°çš„åˆ†æ•°
+	//åœ¨ç´¯åŠ æ€»åˆ†
 	int sum = 0;
 	for (deque<int>::iterator it = d1.begin(); it != d1.end(); it++)
 	{
 		sum += *it;
 	}
-	return sum / 8;//·µ»ØÆ½¾ù·Ö
+	return sum / 8;//è¿”å›å¹³å‡åˆ†
 }
 void printPlayer( Player& p)
 {
-	cout << "Ñ¡ÊÖĞÕÃû£º" << p.getName() << " Ñ¡ÊÖ×îÖÕµÃ·Ö£º " << p.getScore() << endl;
+	cout << "é€‰æ‰‹å§“åï¼š" << p.getName() << " é€‰æ‰‹æœ€ç»ˆå¾—åˆ†ï¼š " << p.getScore() << endl;
 }
 int main()
 {
-	//Ìí¼ÓËæ»úÊıÖÖ×Ó
+	//æ·»åŠ éšæœºæ•°ç§å­
 	srand((unsigned int)time(NULL));
 	Player p1("shi", 0);
 	Player p2("Li", 0);
 	Player p3("Hua", 0);
 	Player p4("Nono", 0);
 	Player p5("nbk", 0);
-	//´´½¨ÈİÆ÷
+	//åˆ›å»ºå®¹å™¨
 	vector<Player>v1;
 	v1.push_back(p1);
 	v1.push_back(p2);
@@ -79,12 +79,12 @@ int main()
 	}
 	for (vector<Player>::iterator it = v1.begin(); it != v1.end(); it++)
 	{
-		(*it).Judging(adv_score(*it));//¸øÃ¿¸öÑ¡ÊÖ¸³ÉÏÆ½¾ù·Ö
+		(*it).Judging(adv_score(*it));//ç»™æ¯ä¸ªé€‰æ‰‹èµ‹ä¸Šå¹³å‡åˆ†
 	}
-	cout << "¸³·ÖÖĞ¡¤¡¤¡¤" << endl;
+	cout << "èµ‹åˆ†ä¸­Â·Â·Â·" << endl;
 	for (vector<Player>::iterator it = v1.begin(); it != v1.end(); it++)
 	{
-		printPlayer(*it);//´òÓ¡Ã¿Î»Ñ¡ÊÖ×îÖÕ³É¼¨
+		printPlayer(*it);//æ‰“å°æ¯ä½é€‰æ‰‹æœ€ç»ˆæˆç»©
 	}
-
+//å°è¯•ä¸€ä¸‹èƒ½ä¸èƒ½ä¿®æ”¹
 }
